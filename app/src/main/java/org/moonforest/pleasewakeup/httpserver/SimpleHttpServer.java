@@ -136,11 +136,11 @@ public class SimpleHttpServer {
             String[] args = queryString.split("&");
             Uri uri = Uri.parse(path);
             String firstPath = uri.getPathSegments().get(0);
-            if (firstPath.equalsIgnoreCase(URL_PATH)) {//唤醒用
+            if (firstPath.equalsIgnoreCase(URL_PATH)) {//唤醒用,这里最好对请求做一些验证,防止被误触发或者攻击
                 String url = uri.getQueryParameter("r");
                 response(connection, "wakeup success".getBytes());
                 RedirectActivity.launch(MyApplication.sMyApplication, url);
-            } else if (firstPath.equalsIgnoreCase("test")) {//这段只是测试在微信浏览器里面打开H5页面用的,就是着陆页
+            } else if (firstPath.equalsIgnoreCase("test")) {//这段只是测试在微信浏览器里面打开H5页面用的,实际项目里就是着陆页
                 response(connection, getTestPageContent());
             } else {
                 response(connection, "404".getBytes());

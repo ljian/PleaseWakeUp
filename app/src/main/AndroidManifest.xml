@@ -21,14 +21,14 @@
         </activity>
         <activity android:name=".RedirectActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW"/><!--使用浏览器打开里面排序靠前-->
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="http" android:host="@string/defaultDomain"/>
                 <data android:scheme="https" android:host="@string/defaultDomain"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW"/><!--传统自定义协议-->
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="wakeup" />
